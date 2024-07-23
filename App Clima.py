@@ -10,7 +10,6 @@ import os
 
 api_codigo = os.getenv('OPENWEATHER_API_KEY')
 
-
 ventana = Tk()
 ventana.title("Condiciones Climáticas")
 
@@ -65,7 +64,7 @@ def mostrar_datos(frame, datos):
     etiqueta5['font'] = mifuentepequeña
     etiqueta5.grid(column=1, row=4)
 
-def enviar():
+def enviar(event=None):
     ventanaemergente = Toplevel()
 
     frame2 = LabelFrame(ventanaemergente)
@@ -96,6 +95,7 @@ Label(frame, text="Ingrese el nombre de la ciudad:", font=mifuente).grid(column=
 entry = Entry(frame)
 entry['font'] = mifuente
 entry.grid(column=0, row=1, columnspan=3, padx=10, pady=10, ipadx=50, ipady=5)
+entry.bind('<Return>', enviar)  # Vincular la tecla Enter al evento enviar
 
 button = Button(frame, text="Enviar", command=enviar)
 button['font'] = mifuente
