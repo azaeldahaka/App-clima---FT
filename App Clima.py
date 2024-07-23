@@ -67,7 +67,13 @@ def enviar():
     frame2 = LabelFrame(ventanaemergente)
     frame2.pack(padx=10, pady=10)
 
-    ciudad = entry.get()
+    ciudad = entry.get().strip()
+    if not ciudad:
+        etiqueta_error = Label(frame2, text="Por favor ingrese una ciudad.")
+        etiqueta_error['font'] = mifuente
+        etiqueta_error.grid(column=1, row=0)
+        return
+
     entry.delete(0, END)
 
     try:
