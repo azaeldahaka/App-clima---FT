@@ -12,6 +12,7 @@ api_codigo = os.getenv('OPENWEATHER_API_KEY')
 
 ventana = Tk()
 ventana.title("Condiciones Climáticas")
+ventana.resizable(False, False) #Hace que la ventana no se cambie
 
 mifuente = font.Font(family='Helvetica', size=20, weight='bold')
 mifuentegrande = font.Font(family='Helvetica', size=60, weight='bold')
@@ -36,7 +37,7 @@ def mostrar_datos(frame, datos):
     ciudadog = datos['name']
     pais = datos['sys']['country']
     temperatura_actual = round(datos['main']['temp'] - 273.15, 1)
-    sensacion_termica = round(datos['main']['temp'] - 273.15, 1)
+    sensacion_termica = round(datos['main']['feels_like'] - 273.15, 1)
     clima = datos['weather'][0]['main']
     temperatura_minima = round(datos['main']['temp_min'] - 273.15, 1)
     temperatura_maxima = round(datos['main']['temp_max'] - 273.15, 1)
@@ -66,6 +67,7 @@ def mostrar_datos(frame, datos):
 
 def enviar(event=None):
     ventanaemergente = Toplevel()
+    ventanaemergente.resizable(False, False)  # Hacer que la ventana no sea redimensionable
 
     frame2 = LabelFrame(ventanaemergente)
     frame2.pack(padx=10, pady=10)
