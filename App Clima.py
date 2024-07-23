@@ -6,6 +6,10 @@ from tkinter import *
 import tkinter.font as font
 import requests
 import json
+import os
+
+api_codigo = os.getenv('OPENWEATHER_API_KEY')
+
 
 ventana = Tk()
 ventana.title("Condiciones Climáticas")
